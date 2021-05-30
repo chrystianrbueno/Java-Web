@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="js/angular.min.js"></script>
-    <script src="controller/professores.js?v=2"></script>
+    <script src="controller/professores.js"></script>
 	
     <link rel="icon" href="imagens/favicon.ico">
 
@@ -16,7 +16,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+	<link href="css/estilos.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
 
 	<style type="text/css">
@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Site Chrystian</a>
+              <a id="estiloso" class="navbar-brand" href="#">Site Chrystian</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -65,30 +65,30 @@
 			<form>
 				<div class="form-horizontal">
 					<div class="form-group">
-						<label for=codigo class="col-sm-2 control-label">Código</label>
+						<label for=codigo" required class="col-sm-2 control-label">Código</label>
 						<div class="col-sm-1">
-							<input type="text" class="form-control" id="codigo" placeholder="Cod">
+							<input type="text" ng-model="professor.codigo" class="form-control" id="codigo" placeholder="Cod">
 						</div>
 					</div>
 						
 					<div class="form-group">
-							<label for=nome" class="col-sm-2 control-label">Nome</label>
+							<label for=nome" required class="col-sm-2 control-label">Nome</label>
 							<div class="col-sm-4">
-								<input type="text" class="form-control" id="nome" placeholder="Nome">
+								<input type="text" ng-model="professor.nome" class="form-control" id="nome" placeholder="Nome">
 							</div>
 					</div>
 					
 					<div class="form-group">
 							<label for=email" class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-4">
-								<input type="email" class="form-control" id="email" placeholder="Email">
+								<input type="email" ng-model="professor.email" class="form-control" id="email" placeholder="Email">
 							</div>
 					</div>
 					
 					<div class="form-group">
 							<label for=Nome" class="col-sm-2 control-label">Fone</label>
 							<div class="col-sm-4">
-								<input type="text" class="form-control" id="fone" placeholder="Fone">
+								<input type="text" ng-model="professor.fone" class="form-control" id="fone" placeholder="Fone">
 							</div>
 					</div>
 
@@ -96,10 +96,10 @@
 						
 					<div class="form-group" align="center">
 						<br>
-						<button type="submit" class="btn btn-success">Novo</button>
-						<button type="submit" class="btn btn-primary">Gravar</button>
-						<button type="submit" class="btn btn-danger">Excluir</button>
-						<input type="text"  id="pesquisa" placeholder="Digite a pesquisa">
+						<button type="submit" ng-click="limparCampos()" class="btn btn-success">Novo</button>
+						<button type="submit" ng-disabled="!professor.nome" ng-click="salvar()" class="btn btn-primary">Gravar</button>
+						<button type="submit" ng-click="excluir()" class="btn btn-danger">Excluir</button>
+						<input type="text"  ng-model="pesquisaProfessor" id="pesquisa" placeholder="Digite a pesquisa">
 					</div>
 				
 			
@@ -111,9 +111,9 @@
 					<th>Nome</th>
 					<th>Email</th>
 					<th>Telefone</th>
-					<tr ng-repeat="professoresTabela in professores">
+					<tr ng-repeat="professoresTabela in professores | filter:pesquisaProfessor"  ng-click="selecionaProfessor(professoresTabela)">
 						<td>{{professoresTabela.codigo}}</td>
-						<td>{{professoresTabela.codigo}}</td>
+						<td>{{professoresTabela.nome}}</td>
 						<td>{{professoresTabela.email}}</td>
 						<td>{{professoresTabela.fone}}</td>
 					</tr>

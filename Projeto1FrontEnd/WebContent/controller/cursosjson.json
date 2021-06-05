@@ -1,0 +1,22 @@
+{
+   "cursos":[
+      {
+         "codigo":"1",
+         "descricao":"Java",
+         "diasHorarios":"segundas 19h",
+         "professor":"Neri"
+      },
+      {
+         "codigo":"2",
+         "descricao":"Java Web",
+         "diasHorarios":"Quarta 20h",
+         "professor":"Carlos"
+      },
+      {
+         "codigo":"3",
+         "descricao":"PHP",
+         "diasHorarios":"segundas 7h",
+         "professor":"Juka"
+      }
+   ]
+}

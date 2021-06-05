@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cursoModulo">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="js/angular.min.js"></script>
+    <script src="controller/cursos.js?v=12"></script>
+	
+    <link rel="icon" href="imagens/favicon.ico">
+
+    <title>Chrystian Rocha</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/estilos.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
+
+	<style type="text/css">
+</style>
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body ng-controller="cursoController">
+	<div ng-include src="'menus.html'"></div>
+	<br><br><br>
+	<div class="container">
+		<h1 align= "center">Lista e cadastro de Cursos</h1>
+		<form class="form-horizontal">
+				<div class="form-group">
+					<label for=codigo" required class="col-sm-2 control-label">Código</label>
+					<div class="col-sm-1">
+						<input type="text" ng-model="professor.codigo" class="form-control" id="codigo" placeholder="Cod">
+					</div>
+				</div>
+					
+				<div class="form-group">
+						<label for=nome" required class="col-sm-2 control-label">Nome</label>
+						<div class="col-sm-4">
+							<input type="text" ng-model="curso.nome" class="form-control" id="nome" placeholder="Nome">
+						</div>
+				</div>
+				
+				<div class="form-group">
+						<label for=diasHorarios" class="col-sm-2 control-label">Dias e Horários</label>
+						<div class="col-sm-4">
+							<input type="text" ng-model="curso.diasHorarios" class="form-control" id="cursosHorarios" placeholder="Dias e Horários">
+						</div>
+				</div>
+				
+				<div class="form-group">
+						<label for=professor" class="col-sm-2 control-label">Professor</label>
+						<div class="col-sm-4">
+							<select class="form-control" ng-model="curso.professor" ng-options="professor.nome for professor in professores track by professor.codigo">
+								
+							</select>							
+						</div>
+				</div>
+
+
+					
+				<div class="form-group" align="center">
+					<br>
+					<button type="submit" ng-click="limparCampos()" class="btn btn-success">Novo</button>
+					<button type="submit" ng-disabled="!curso.nome" ng-click="salvar()" class="btn btn-primary">Gravar</button>
+					<button type="submit" ng-click="excluir()" class="btn btn-danger">Excluir</button>
+					<input type="text"  ng-model="pesquisaProfessor" id="pesquisa" placeholder="Digite a pesquisa">
+				</div>
+			
+		
+		</form>
+	</div>
+		
+		<div class="container">
+			<table class="table table-striped">
+				<th>Codigo</th>
+				<th>Descrição</th>
+				<th>Dias e Horários</th>
+				<th>Professor</th>
+				<tr ng-repeat="cursosTabela in cursos | filter:pesquisaCurso"  ng-click="selecionaCurso(cursosTabela)">
+					<td>{{cursosTabela.codigo}}</td>
+					<td>{{cursosTabela.nome}}</td>
+					<td>{{cursosTabela.diasHorarios}}</td>
+					<td>{{cursosTabela.professor.nome}}</td>
+				</tr>
+			</table>
+		</div>
+		<footer>
+			<p class="pull-right"><a href="#">Back to top</a></p>
+			<p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+		</footer>
+		
+	<br>
+      <!-- FOOTER -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

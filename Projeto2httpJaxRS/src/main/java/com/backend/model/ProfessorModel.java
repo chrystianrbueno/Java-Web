@@ -2,6 +2,11 @@ package com.backend.model;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+//necessario para gerar um xml na classe
+
+@XmlRootElement
 public class ProfessorModel implements Serializable{
 	private static final long serialVersionUID = 1L;
 

@@ -25,11 +25,8 @@ professorModulo.controller("professoresController", function($scope, $http) {
 		$scope.professor = null;
 	}
 
-//não implementado metodo post e put
-/*
-
 	$scope.salvar = function() {
-		if ($scope.professor.codigo = '') {
+		if ($scope.professor.codigo == undefined) {
 
 			$http.post(urlProfessor, $scope.professor).then(sucessCallback, errorCalback);
 
@@ -46,7 +43,7 @@ professorModulo.controller("professoresController", function($scope, $http) {
 			$http.put(urlProfessor, $scope.professor).then(sucessCallback, errorCalback);
 
 			function sucessCallback() {
-				$scope.listaProfessores();
+				$scope.listarProfessores();
 				$scope.limparCampos();
 			}
 
@@ -56,7 +53,28 @@ professorModulo.controller("professoresController", function($scope, $http) {
 
 		}
 	}
-*/
+	
+	
+	$scope.excluir = function(){
+		if ($scope.professor.codigo == undefined) {
+
+			alert("Favor selecionar um registro para poder excluir");
+			console.log("Favor selecionar um registro para poder excluir");
+
+		}else{
+			$http.delete(urlProfessor + '/' + $scope.professor.codigo).then(sucessCallback, errorCalback);
+
+			function sucessCallback() {
+				$scope.listarProfessores();
+				$scope.limparCampos();
+			}
+
+			function errorCalback(error) {
+				alert(error);
+			}
+			
+		}
+	}
 
 	//executa
 	$scope.listarProfessores();

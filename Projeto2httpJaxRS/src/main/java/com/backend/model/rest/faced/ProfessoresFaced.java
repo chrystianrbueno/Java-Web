@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -27,5 +31,30 @@ public class ProfessoresFaced {
 	@GET
 	public List<ProfessorModel> getProfessores(){
 		return listaProfessores;
+	}
+	
+	@POST
+	public ProfessorModel salvar(ProfessorModel professor) {
+		System.out.println("POST");
+		listaProfessores.add(professor);
+		return professor;
+	}
+	
+	@PUT
+	public void atualizar(ProfessorModel professor) {
+		System.out.println("PUT");
+		listaProfessores.remove(professor);
+		listaProfessores.add(professor);
+	}
+	
+	@DELETE
+	@Path("/{codigoProfessor}")
+	public void excluir(@PathParam("codigoProfessor")Integer codigoProfessor) {
+		
+		System.out.println("DELETE");
+		ProfessorModel professor = new ProfessorModel();
+		
+		professor.setCodigo(codigoProfessor);
+		listaProfessores.remove(professor);
 	}
 }

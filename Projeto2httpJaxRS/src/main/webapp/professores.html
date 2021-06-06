@@ -10,7 +10,7 @@
 	
     <title>Chrystian Rocha</title>
 
-    <script src="js/angular.min.js?v=12"></script>
+    <script src="js/angular.min.js"></script>
     <script src="controller/professores.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,30 +30,30 @@
 			<form>
 				<div class="form-horizontal">
 					<div class="form-group">
-						<label for=codigo" required class="col-sm-2 control-label">Código</label>
+						<label for="codigo" class="col-sm-2 control-label">Código</label>
 						<div class="col-sm-1">
-							<input type="text" ng-model="professor.codigo" class="form-control" id="codigo" placeholder="Cod">
+							<input type="number" readonly ng-model="professor.codigo" class="form-control" id="codigo" placeholder="Cod">
 						</div>
 					</div>
 						
 					<div class="form-group">
-							<label for=nome" required class="col-sm-2 control-label">Nome</label>
+							<label for="nome" class="col-sm-2 control-label">Nome</label>
 							<div class="col-sm-4">
-								<input type="text" ng-model="professor.nome" class="form-control" id="nome" placeholder="Nome">
+								<input type="text" required ng-model="professor.nome" class="form-control" id="nome" placeholder="Nome">
 							</div>
 					</div>
 					
 					<div class="form-group">
-							<label for=email" class="col-sm-2 control-label">Email</label>
+							<label for="email" class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-4">
-								<input type="email" ng-model="professor.email" class="form-control" id="email" placeholder="Email">
+								<input type="email" required ng-model="professor.email" class="form-control" id="email" placeholder="Email">
 							</div>
 					</div>
 					
 					<div class="form-group">
-							<label for=Nome" class="col-sm-2 control-label">Fone</label>
+							<label for="fone" class="col-sm-2 control-label">Fone</label>
 							<div class="col-sm-4">
-								<input type="text" ng-model="professor.fone" class="form-control" id="fone" placeholder="Fone">
+								<input type="text" required ng-model="professor.fone" class="form-control" id="fone" placeholder="Fone">
 							</div>
 					</div>
 

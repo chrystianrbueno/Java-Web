@@ -34,7 +34,7 @@ cursoModulo.controller("cursoController", function($scope, $http) {
 	}
 
 
-	$scope.selecionacurso = function(cursoSelecionado) {
+	$scope.selecionaCurso = function(cursoSelecionado) {
 		$scope.curso = cursoSelecionado;
 	}
 
@@ -95,6 +95,6 @@ cursoModulo.controller("cursoController", function($scope, $http) {
 
 	//executa
 	$scope.listarCursos();
-	$scope.listaProfessores();
+	$scope.listarProfessores();
 
 });

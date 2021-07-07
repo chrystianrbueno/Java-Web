@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="professorModulo">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>Chrystian Rocha</title>
+
+    <script src="js/angular.min.js"></script>
+    <script src="controller/professores.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/estilos.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
+
+	<style type="text/css">
+</style>
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body ng-controller="professoresController">
+	<div></div>
+	<br><br><br>	
+    <div class="container">
+			<h1 align= "center">Lista e cadastro de Professores</h1>
+			<form>
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label for="codigo" class="col-sm-2 control-label">Código</label>
+						<div class="col-sm-1">
+							<input type="text" readonly ng-model="professor.codigo" class="form-control" id="codigo" placeholder="Cod">
+						</div>
+					</div>
+						
+					<div class="form-group">
+							<label for="nome" class="col-sm-2 control-label">Nome</label>
+							<div class="col-sm-4">
+								<input type="text" required ng-model="professor.nome" class="form-control" id="nome" placeholder="Nome">
+							</div>
+					</div>
+					
+					<div class="form-group">
+							<label for="email" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-4">
+								<input type="email" required ng-model="professor.email" class="form-control" id="email" placeholder="Email">
+							</div>
+					</div>
+					
+					<div class="form-group">
+							<label for="fone" class="col-sm-2 control-label">Fone</label>
+							<div class="col-sm-4">
+								<input type="text" required ng-model="professor.fone" class="form-control" id="fone" placeholder="Fone">
+							</div>
+					</div>
+
+			</div>
+						
+					<div class="form-group" align="center">
+						<br>
+						<button type="submit" ng-click="limparCampos()" class="btn btn-success">Novo</button>
+						<button type="submit" ng-disabled="!professor.nome" ng-click="salvar()" class="btn btn-primary">Gravar</button>
+						<button type="submit" ng-click="excluir()" class="btn btn-danger">Excluir</button>
+						<input type="text"  ng-model="pesquisaProfessor" id="pesquisa" placeholder="Digite a pesquisa">
+					</div>
+				
+			
+			</form>
+			
+			<div class="container">
+				<table class="table table-striped">
+					<th>Codigo</th>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Telefone</th>
+					<tr ng-repeat="professoresTabela in professores | filter: pesquisaProfessor"  ng-click="selecionaProfessor(professoresTabela)">
+						<td>{{professoresTabela.codigo}}</td>
+						<td>{{professoresTabela.nome}}</td>
+						<td>{{professoresTabela.email}}</td>
+						<td>{{professoresTabela.fone}}</td>
+					</tr>
+				</table>
+			</div>
+			<footer>
+				<p class="pull-right"><a href="#">Back to top</a></p>
+				<p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+			</footer>
+	</div>
+      <!-- /END THE FEATURETTES -->
+
+    
+	<br>
+      <!-- FOOTER -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

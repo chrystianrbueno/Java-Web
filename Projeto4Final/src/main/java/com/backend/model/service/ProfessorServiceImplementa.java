@@ -23,14 +23,16 @@ public class ProfessorServiceImplementa implements ProfessorServiceInterface {
 	@Override
 	@Transactional
 	public ProfessorModel salvarProfessor(ProfessorModel professorModel) {
-	
+		
 		return professorDaoInterface.salvarProfessor(professorModel);
 	
 	}
 
 	@Override
+	@Transactional
 	public void alterar(ProfessorModel professorModel) {
-	
+		System.out.println("service put");
+
 		professorDaoInterface.alterar(professorModel);
 	
 	}

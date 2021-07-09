@@ -31,8 +31,8 @@ professorModulo.controller("professoresController", function($scope, $http) {
 			$http.post(urlProfessor, $scope.professor).then(sucessCallback, errorCalback);
 
 			function sucessCallback() {
-				$scope.professores.push($scope.professor);
 				$scope.limparCampos();
+				$scope.listarProfessores();
 			}
 
 			function errorCalback(error) {

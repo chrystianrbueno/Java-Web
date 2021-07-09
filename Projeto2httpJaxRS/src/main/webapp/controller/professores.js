@@ -2,7 +2,7 @@ var professorModulo = angular.module('professorModulo', []);
 
 professorModulo.controller("professoresController", function($scope, $http) {
 
-	urlProfessor = 'http://localhost:8080/Projeto2httpJaxRS/rest/professores';
+	urlProfessor = 'http://localhost:8080/Projeto4Final/rest/professores';
 	$scope.listarProfessores = function() {
 
 		$http.get(urlProfessor).then(sucessCallback, errorCalback);

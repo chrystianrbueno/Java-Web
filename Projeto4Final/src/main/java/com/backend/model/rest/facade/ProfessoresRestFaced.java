@@ -19,7 +19,7 @@ import com.backend.model.service.ProfessorServiceImplementa;
 @Path("/professores")
 @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 @Consumes(MediaType.APPLICATION_JSON)
-public class ProfessoresFaced {
+public class ProfessoresRestFaced {
 
 //Modo direto sem o uso de serviços
 	/*

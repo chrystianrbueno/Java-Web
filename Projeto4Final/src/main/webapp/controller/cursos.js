@@ -2,8 +2,8 @@ var cursoModulo = angular.module('cursoModulo', []);
 
 cursoModulo.controller("cursoController", function($scope, $http) {
 
-	urlProfessor = 'http://localhost:8080/Projeto2httpJaxRS/rest/professores';
-	urlCurso = 'http://localhost:8080/Projeto2httpJaxRS/rest/cursos';
+	urlProfessor = 'http://localhost:8080/Projeto4Final/rest/professores';
+	urlCurso = 'http://localhost:8080/Projeto4Final/rest/cursos';
 
 	$scope.listarCursos = function() {
 
@@ -48,8 +48,8 @@ cursoModulo.controller("cursoController", function($scope, $http) {
 			$http.post(urlCurso, $scope.curso).then(sucessCallback, errorCalback);
 
 			function sucessCallback() {
-				$scope.cursos.push($scope.curso);
 				$scope.limparCampos();
+				$scope.listarCursos();
 			}
 
 			function errorCalback(error) {

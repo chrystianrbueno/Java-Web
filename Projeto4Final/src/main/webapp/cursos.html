@@ -31,7 +31,7 @@
 				<div class="form-group">
 					<label for="codigo" required class="col-sm-2 control-label">Código</label>
 					<div class="col-sm-1">
-						<input type="text" readonly ng-model="curso.codigo" class="form-control" id="codigo" placeholder="Cod">
+						<input type="text" readonly ng-model="cursoModel.codigo" class="form-control" id="codigo" placeholder="Cod">
 					</div>
 				</div>
 					
@@ -52,7 +52,7 @@
 				<div class="form-group">
 						<label for="professor" class="col-sm-2 control-label">Professor</label>
 						<div class="col-sm-4">
-							<select class="form-control" ng-model="curso.professorModel" ng-options="professor.nome for professor in professores track by professor.codigo">
+							<select class="form-control" ng-model="curso.professorModel" ng-options="professorModel.nome for professorModel in professores track by professorModel.codigo">
 								
 							</select>							
 						</div>
